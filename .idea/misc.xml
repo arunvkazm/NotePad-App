@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/AL-WAFA COMPUTER/AndroidStudioProjects/NoteBook/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/AL-WAFA COMPUTER/AndroidStudioProjects/NoteBook/app/src/main/res/layout/activity_sp_screen.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/AL-WAFA COMPUTER/AndroidStudioProjects/NoteBook/app/src/main/res/layout/activity_splash_screen.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/AL-WAFA COMPUTER/AndroidStudioProjects/NoteBook/app/src/main/res/layout/item_rv.xml" value="0.33" />
+        <entry key="..\:/Users/AL-WAFA COMPUTER/AndroidStudioProjects/NoteBook/app/src/main/res/layout/items_rv.xml" value="0.22" />
       </map>
     </option>
   </component>
