@@ -6,28 +6,54 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.notebook.databinding.ActivityDataInsertBinding;
+import com.example.notebook.databinding.DataInsertBinding;
 
-public class DataInsertActivity extends AppCompatActivity {
+public class DataInsert extends AppCompatActivity {
 
-    ActivityDataInsertBinding binding;
+    DataInsertBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityDataInsertBinding.inflate(getLayoutInflater());
+        binding = DataInsertBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.putExtra("Title",binding.titleET.getText().toString());
-                intent.putExtra("Text",binding.textET.getText().toString());
-                setResult(RESULT_OK,intent);
-                finish();
-            }
-        });
+        String type = getIntent().getStringExtra("type");
+        if (type.equals("update")) {
+            setTitle("update");
+            binding.titleET.setText(getIntent().getStringExtra("title"));
+            binding.textET.setText(getIntent().getStringExtra("text"));
+            int id = getIntent().getIntExtra("id",0);
+            binding.add.setText("Update note");
+              binding.add.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      Intent intent = new Intent();
+                      intent.putExtra("Title", binding.titleET.getText().toString());
+                      intent.putExtra("Text", binding.textET.getText().toString());
+                      intent.putExtra("id",id);
+                      setResult(RESULT_OK, intent);
+                      finish();
+                  }
+              });
+        } else {
+            setTitle("Add Mode");
+            binding.add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent();
+                    intent.putExtra("Title", binding.titleET.getText().toString());
+                    intent.putExtra("Text", binding.textET.getText().toString());
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+        }
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(DataInsert.this, MainActivity.class));
     }
 }
